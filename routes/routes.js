@@ -1,5 +1,46 @@
-const rooms = [];
-const bookings = [];
+const rooms = [
+    {
+        "RoomName": 101,
+        "SeatsAvailable": 50,
+        "Amenities": [
+          "Air Conditioner",
+          "Decorated Stage",
+          "Decorated Chairs",
+          "Music system"
+        ],
+        "PricePerHour": 50000
+      },
+
+      {
+        "RoomName": 102,
+        "SeatsAvailable": 50,
+        "Amenities": [
+          "Air Conditioner",
+          "Decorated Stage",
+          "Decorated Chairs",
+          "Music system"
+        ],
+        "PricePerHour": 50000
+      }
+];
+const bookings = [
+    {
+        "CustomerName": "CustomerOne",
+        "Date": "2023-10-02",
+        "StartTime": "12:00",
+        "EndTime": "20:00",
+        "RoomID": 99,
+        "BookingDate": "2023-10-03"
+    },
+    {
+        "CustomerName": "CustomerTwo",
+        "Date": "2023-10-02",
+        "StartTime": "12:00",
+        "EndTime": "20:00",
+        "RoomID": 99,
+        "BookingDate": "2023-10-03"
+    }
+];
 
 // Create a Room
 const createRoom = (req, res) => {
@@ -43,7 +84,7 @@ const bookRoom = (req, res) => {
 
 // List all Rooms with Booked data
 const listRooms = (req, res) => {
-    const bookedRooms = [];
+    const bookedRooms = rooms;
     rooms.forEach((room) => {
         bookings.forEach((booking) => {
             if (room.RoomName === booking.RoomID) {
