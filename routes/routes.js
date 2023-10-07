@@ -77,7 +77,12 @@ const bookRoom = (req, res) => {
         BookingDate,
         BookingStatus: 'Booked',
     };
-
+    bookings.forEach((room) => {
+            if (room.RoomID === RoomID) {
+                return res.status(401).json({ error: "Already booked" });
+            }
+    });
+    
     bookings.push(booking);
     res.json({ message: `Room booked for ${CustomerName} on  ${BookingDate}` });
 }
