@@ -4,9 +4,8 @@ const rooms = [
         "SeatsAvailable": 50,
         "Amenities": [
           "Air Conditioner",
-          "Decorated Stage",
-          "Decorated Chairs",
-          "Music system"
+          "Food",
+          "Wifi"
         ],
         "PricePerHour": 50000
       },
@@ -15,10 +14,9 @@ const rooms = [
         "RoomName": 102,
         "SeatsAvailable": 50,
         "Amenities": [
-          "Air Conditioner",
-          "Decorated Stage",
-          "Decorated Chairs",
-          "Music system"
+          "Non Air Conditioner",
+          "Food",
+          "Wifi"
         ],
         "PricePerHour": 50000
       }
@@ -79,10 +77,10 @@ const bookRoom = (req, res) => {
     };
     bookings.forEach((room) => {
             if (room.RoomID === RoomID) {
-                return res.status(401).json({ error: "Already booked" });
+                return res.status(401).json({ Message: "Already booked" });
             }
     });
-    
+
     bookings.push(booking);
     res.json({ message: `Room booked for ${CustomerName} on  ${BookingDate}` });
 }
